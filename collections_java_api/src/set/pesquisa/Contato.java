@@ -16,10 +16,13 @@ public class Contato {
 	public String getNome() { 
 		return nome;
 	}
-	public int getnumero() {
+	public int getNumero() {
 		return numero;
 	}
-		
+	//set
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(nome);
@@ -38,7 +41,7 @@ public class Contato {
 	//toString
 	@Override
 	public String toString() {
-		return "[Contato]Nome: " + nome + " - " + "Número: " + numero;
+		return "{" + nome + "," + numero + "}";
 	}
 	
 }
