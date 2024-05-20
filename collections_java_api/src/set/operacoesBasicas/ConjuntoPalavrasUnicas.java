@@ -1,6 +1,7 @@
 package set.operacoesBasicas;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class ConjuntoPalavrasUnicas {
@@ -11,7 +12,27 @@ public class ConjuntoPalavrasUnicas {
 	public ConjuntoPalavrasUnicas() {
 		this.conjuntoPalavras = new HashSet<>();
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(conjuntoPalavras);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ConjuntoPalavrasUnicas other = (ConjuntoPalavrasUnicas) obj;
+		return Objects.equals(conjuntoPalavras, other.conjuntoPalavras);
+	}
+
+
+
 	//mét
 	public void adicionarPalavra(String palavra) {
 		conjuntoPalavras.add(palavra);
@@ -48,6 +69,9 @@ public class ConjuntoPalavrasUnicas {
 		conjuntoPalavras.removerpalavra("Mario");
 		conjuntoPalavras.exibirPalavrasUnicas();
 		conjuntoPalavras.verificarPalavra("Victor");
+		conjuntoPalavras.adicionarPalavra("Victor"); //não será adicionado no Set
+		conjuntoPalavras.exibirPalavrasUnicas();
+
 		
 		}
 
